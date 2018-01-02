@@ -44,22 +44,20 @@ The model.py file contains the code for training and saving the convolution neur
 
 #### 1. An appropriate model architecture has been employed
 
-My model consists of a convolution neural network with 5x5 or 3x3 filter sizes and 
-depths between 24 and 80 (model.py 
-lines 54-69) 
+My model consists of a convolution neural network with 5x5, 3x5, or 3x3 filter sizes and 
+depths between 24 and 64 (model.py lines 54-71) 
 
-The model includes RELU layers to introduce nonlinearity for the CNN layers 
-and tanh activation functions for the dense layers. 
-The input data is 
-normalized in the model using a Keras lambda layer (code line 56) 
-and cropped using a Keras cropping layer (code 
-line 55). 
+The model includes RELU layers to introduce nonlinearities for the CNN layers. 
+The input data is normalized in the model using a Keras lambda layer (code line 56) 
+and cropped using a Keras cropping layer (code line 55). 
 
 #### 2. Attempts to reduce overfitting in the model
-The model contains dropout layers between the first three dense layers in order to reduce overfitting 
-(model.py lines 64 and 66). 
+The model contains dropout layers between the dense layers in order to reduce overfitting 
+(model.py lines 63, 65, 67 and 69). 
 
-The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 10-16). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
+The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 
+51-52). 
+The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
 
 #### 3. Model parameter tuning
 
@@ -93,8 +91,7 @@ To combat the overfitting, I modified the model so that it included dropout laye
 The final step was to run the simulator to see how well the car was 
 driving around track one.
 It seemed to have some issues making the turn after the bridge 
-so I collected some more 
-training data around it and retrained the model.
+so I collected some more training data around this location and retrained the model.
 
 At the end of the process, the vehicle is able to drive autonomously around the 
 track without leaving the road.
@@ -103,7 +100,7 @@ track without leaving the road.
 
 The final model architecture (model.py lines 54-69) consisted of five
  convolution layers followed by four dense layers.  
- The first three dense layers were separated by Dropout layers to reduce overfitting.
+ The dense layers were separated by Dropout layers to reduce overfitting.
 
 Here is a visualization of the architecture with the sizes specified:
 
